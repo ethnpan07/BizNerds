@@ -68,3 +68,8 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+### Setting API key
+
+Use run `export=FMP_API_KEY` in your terminal or append to the end of your shell configuration file (~/.zshrc, ~/.bashrc, etc.) and run `source ~/.zshrc` or your respective shell configuration file.
