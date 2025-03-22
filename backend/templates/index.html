@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Stock Dashboard Search</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Stock Dashboard (Legacy)</h1>
+    <form action="{{ url_for('dashboard.dashboard') }}" method="get">
+        <label for="ticker">Enter Stock Ticker:</label>
+        <input type="text" id="ticker" name="ticker" placeholder="e.g., AAPL" required>
+        <button type="submit">Search</button>
+    </form>
+
+    <!-- If you want to keep the old “Check Recommendations” button, remove or comment out below -->
+    <!-- 
+    <button class="btn btn-primary" onclick="loadRecommendations()">Check Recommendations</button>
+    <div id="recommendations-card"></div>
+    <script>
+    function loadRecommendations() {
+        fetch("{{ url_for('recommendations.recommendations') }}")
+        .then(response => response.text())
+        .then(html => {
+            document.getElementById("recommendations-card").innerHTML = html;
+        })
+        .catch(error => console.error("Error loading recommendations:", error));
+    }
+    </script>
+    -->
+</body>
+</html>
