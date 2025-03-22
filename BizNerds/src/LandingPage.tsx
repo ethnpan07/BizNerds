@@ -17,19 +17,21 @@ function LandingPage() {
           BizNerdz
         </h1>
 
-        {/* Body Paragraph */}
-        <p className="mt-12 text-5xl text-gray-600 text-center max-w-6xl">
-          Welcome to BizNerdz! The ultimate platform for business and tech enthusiasts.
-        </p>
-      </div>
+        {/* Body Paragraph and Button Container */}
+        <div className="relative w-full max-w-6xl mt-12">
+          <p className="text-5xl text-gray-600 text-center">
+            Welcome to BizNerdz! The ultimate platform for business and tech enthusiasts.
+          </p>
 
-      {/* Start Button */}
-      <Button
-        className="fixed bottom-16 right-16 px-12 py-6 bg-black text-white rounded-2xl text-4xl"
-        onClick={() => navigate("/InfoDump")}
-      >
-        Start
-      </Button>
+          {/* Start Button */}
+          <Button
+            className="absolute -bottom-24 -right-24 px-16 py-8 bg-black text-white rounded-3xl text-5xl"
+            onClick={() => navigate("/InfoDump")}
+          >
+            Start
+          </Button>
+        </div>
+      </div>
     </div>
   );
 }
