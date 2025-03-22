@@ -1,0 +1,6 @@
+.search-wrapper { position: relative; width: 100%; max-width: 400px; }
+.search-input { width:100%; padding:8px; font-size:16px; border:1px solid #ccc; border-radius:4px; }
+.search-dropdown { position:absolute; top:100%; left:0; right:0; background:#fff; border:1px solid #ddd; box-shadow:0 4px 8px rgba(0,0,0,0.1); max-height:240px; overflow-y:auto; border-radius:0 0 4px 4px; }
+.search-item { display:flex; align-items:center; padding:8px; cursor:pointer; }
+.search-item:hover { background:#f0f0f0 }
+.search-logo { width:24px; height:24px; margin-right:8px; }
