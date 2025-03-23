@@ -1,23 +1,39 @@
 /* Layout grid: top nav, left nav, main content */
+/* Base container styles */
 .dash-container {
     display: grid;
-    /* row 1 is 80px (top nav), row 2 is the rest (auto) */
-    grid-template-rows: 80px auto;
-    /* column 1 is 220px (left nav), column 2 is the rest (auto) */
-    grid-template-columns: 220px auto;
-    /* name the areas for clarity */
+    height: 100vh;      /* or min-height: 100vh; */
+    margin: 0;
+    box-sizing: border-box;
+    grid-template-rows: 80px auto; /* row 1 = top nav, row 2 = content */
+  }
+  .dash-container.logged-out {
+    grid-template-columns: 220px auto; /* left nav = 220px, main = rest */
     grid-template-areas:
       "topnav topnav"
       "leftnav main";
-    height: 100vh;       /* or min-height: 100vh; */
-    margin: 0;           /* remove default body margin if needed */
-    box-sizing: border-box;
   }
+  .dash-container.logged-in {
+    grid-template-columns: 220px 220px auto;
+    grid-template-areas:
+      "topnav topnav topnav"
+      "leftnav secondnav main";
+  }
+    
+  
+  /* We'll define separate columns for logged-out vs logged-in */
+  
   
   /* -------------- TOP NAV -------------- */
   .top-nav {
     grid-area: topnav;
+    position: sticky; /* or fixed if you want it pinned */
+    top: 0;
+    z-index: 999;
+    height: 80px;
+    background: #fff;
   }
+  
   .top-left {
     display: flex;
     align-items: center;
@@ -74,12 +90,36 @@
   .left-nav li:hover {
     background: #dde2ea;
   }
+  /* -------------- 2nd LEFT NAV -------------- */
+  .second-left-nav {
+    grid-area: secondnav;
+    background-color: #fafafa;
+    width: 100%; /* it will fill that column automatically */
+    padding: 16px 12px;
+  }
+
+
   
   /* -------------- MAIN CONTENT -------------- */
+  .outer-nav {
+    /* Not strictly needed if we define each sub-nav individually, but let's keep it */
+    grid-area: leftnav;
+    display: flex;  /* we can still place LeftNav and SecondLeftNav side by side */
+  }
+  
+  /* If we want the second left nav to fill the "secondnav" grid area instead, 
+     we can do something like: */
+  .second-left-nav {
+    grid-area: secondnav;
+  }
+  
+  /* main content should fill the main area */
   .main-content {
     grid-area: main;
     padding: 24px;
+    overflow: auto; /* if you need scrolling */
   }
+  
   
   /* Search bar row */
   .search-form {

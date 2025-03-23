@@ -9,16 +9,18 @@ from routes.position_routes import position_bp
 from routes.transaction_routes import transaction_bp
 from dashboard.routes import dashboard_bp
 from recommendations.routes import recommendations_bp
+import os
+from config import BASE_DIR, SECRET_KEY
 
 
 def create_app():
     app = Flask(__name__)
     
     # Required for session cookies:
-    app.config['SECRET_KEY'] = 'CHANGE_THIS_SECRET'
+    app.config['SECRET_KEY'] = SECRET_KEY
     
     # SQLAlchemy config:
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://user:pass@localhost/mydb'
+    app.config['SQLALCHEMY_DATABASE_URI'] = f"sqlite:///{os.path.join(BASE_DIR, 'paper_trading.db')}"
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     
     db.init_app(app)

@@ -1,0 +1,14 @@
+/* src/components/DashboardContents.css */
+.card-plot {
+    width: 100%;
+    display: flex;
+    justify-content: center;  /* centers the chart if you like */
+    /* or remove justify-content if you want it left-aligned */
+  }
+  
+  .company-summary {
+    margin: 16px 24px; /* some nice spacing */
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  
