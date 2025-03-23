@@ -1,6 +1,6 @@
 # backend/routes/portfolio_routes.py
 from flask import Blueprint, request, jsonify, session
-from backend.models import db, Portfolio
+from models import db, Portfolio
 
 portfolio_bp = Blueprint('portfolio_bp', __name__)
 

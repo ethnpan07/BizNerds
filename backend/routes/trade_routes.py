@@ -1,6 +1,6 @@
 # backend/routes/trade_routes.py
 from flask import Blueprint, request, jsonify, session
-from backend.models import db, Trade
+from models import db, Trade
 
 trade_bp = Blueprint('trade_bp', __name__)
 

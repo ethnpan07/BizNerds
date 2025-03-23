@@ -1,6 +1,6 @@
 # backend/routes/order_routes.py
 from flask import Blueprint, request, jsonify, session
-from backend.models import db, Order
+from models import db, Order
 
 order_bp = Blueprint('order_bp', __name__)
 
