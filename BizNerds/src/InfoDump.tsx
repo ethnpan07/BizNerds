@@ -5,6 +5,8 @@ import {
     CarouselNext,
     CarouselPrevious,
   } from "@/components/ui/carousel"
+import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
 import { Card, CardContent } from "./components/ui/card"
 
 import * as React from "react"
@@ -22,6 +24,7 @@ export default function InfoDump() {
       const plugin = React.useRef(
         Autoplay({ delay: 4000, stopOnInteraction: true })
       )
+  const navigate = useNavigate();
 
   return (
     <div className="w-screen h-screen flex flex-col justify-center items-center">
@@ -47,7 +50,13 @@ export default function InfoDump() {
       </CarouselContent>
       <CarouselPrevious />
       <CarouselNext />
-    </Carousel> 
+    </Carousel>
+    <Button
+      className="absolute -bottom-24 -right-24 px-16 py-8 bg-black text-white rounded-3xl text-5xl"
+      onClick={() => navigate("/Profiler")}
+      >
+      Start
+    </Button>
     </div>
     
   )
