@@ -1,6 +1,8 @@
+// src/components/Dashboard.jsx
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import DashboardContents from './DashboardContents'
+import LeftNav from './LeftNav'
 import './Dashboard.css'
 
 export default function Dashboard() {
@@ -33,18 +35,8 @@ export default function Dashboard() {
 
   return (
     <div className="dash-container">
-      {/*--- Left Nav Bar ---*/}
-      <nav className="left-nav">
-        <ul>
-          <li>Stocks</li>
-          <li>Bonds</li>
-          <li>Dividends</li>
-          <li>Index Funds</li>
-          <li>ETFs</li>
-          <li>Options</li>
-          <li>Futures</li>
-        </ul>
-      </nav>
+      {/*--- Use the separate LeftNav component ---*/}
+      <LeftNav />
 
       {/*--- Main Content ---*/}
       <main className="main-content">

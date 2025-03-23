@@ -1,63 +1,69 @@
-.top-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 24px;
-    height: 80px; /* 🔼 increase nav bar height */
-    background: white;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-  }
-  
-  .top-left {
+/* src/components/TopNav.css */
+
+.top-header {
+    /* let the header remain in normal flow until scroll passes it, then it "sticks" */
+    position: sticky;
+    top: 0;
+    z-index: 999;              /* ensure it stays on top of other elements */
     display: flex;
     align-items: center;
-    gap: 16px;
+    height: 80px;              /* match your design */
+    background-color: #fff; 
+    box-shadow: 0 2px 4px rgba(0,0,0,0.08);
   }
   
-  .logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-right: 110px;
+  /* The left box for your logo */
+  .logo-box {
+    width: 220px; /* match your left nav width, if desired */
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid #ddd; /* optional divider */
   }
   
-  .search-input {
-    height: 30px;            /* consistent with button */
-    width: 500px;
-    font-size: 16px;
-    padding: 4px 12px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-  }  
-  
-  .search-btn {
-    height: 40px;
-    width: 90px;
-    padding: 0 20px;
-    font-size: 16px;
-    background-color: #337DFF;
-    color: white;
-    border: none;
-    border-radius: 6px;
+  .brand-logo {
+    width: 48px;
+    height: auto;
+    object-fit: contain;
     cursor: pointer;
   }
   
-  .rec-button {
-    height: 38px; /* 🔼 match height */
-    padding: 0 20px;
-    font-size: 16px;
-    background-color: #337DFF;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-  }
-  .search-wrapper {
+  /* The area on the right for your search bar and 'Recommendations' button */
+  .right-container {
     display: flex;
     align-items: center;
+    flex: 1;
+    justify-content: space-between; 
+    padding: 0 16px;
   }
+  
   .search-container {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 8px;
+  }
+  
+  /* Style the search button */
+  .search-btn {
+    padding: 0 16px;
+    height: 40px;
+    border: none;
+    background-color: #337DFF;
+    color: #fff;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  /* Style the recommendations button */
+  .rec-button {
+    padding: 0 16px;
+    height: 40px;
+    border: none;
+    background-color: #337DFF;
+    color: #fff;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-left: 16px; /* optional spacing */
   }
   

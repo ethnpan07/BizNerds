@@ -1,6 +1,6 @@
 # backend/routes/transaction_routes.py
 from flask import Blueprint, request, jsonify, session
-from backend.models import db, Transaction
+from models import db, Transaction
 
 transaction_bp = Blueprint('transaction_bp', __name__)
 

@@ -1,6 +1,6 @@
 # backend/routes/position_routes.py
 from flask import Blueprint, request, jsonify, session
-from backend.models import db, Position
+from models import db, Position
 
 position_bp = Blueprint('position_bp', __name__)
 

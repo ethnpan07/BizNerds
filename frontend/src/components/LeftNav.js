@@ -3,7 +3,15 @@ import React from 'react'
 import './LeftNav.css'
 
 export default function LeftNav() {
-  const items = ["Stocks", "Bonds", "Dividends", "Index Funds", "ETFs", "Options", "Futures"]
+  const items = [
+    "Stocks", 
+    "Bonds", 
+    "Dividends", 
+    "Index Funds", 
+    "ETFs", 
+    "Options", 
+    "Futures"
+  ]
 
   return (
     <nav className="left-nav">
@@ -12,7 +20,6 @@ export default function LeftNav() {
           <li key={item} className="nav-item">{item}</li>
         ))}
       </ul>
-      <div className="diversity-box">Diversity Visualization</div>
     </nav>
   )
 }

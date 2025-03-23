@@ -1,11 +1,15 @@
 from flask import Flask
-from backend.routes.auth_routes import auth_bp
-from backend.routes.user_routes import user_bp
-from backend.routes.account_routes import account_bp
-from backend.routes.order_routes import order_bp
-from backend.routes.trade_routes import trade_bp
-from backend.routes.position_routes import position_bp
-from backend.routes.transaction_routes import transaction_bp
+from models import db
+from routes.auth_routes import auth_bp
+from routes.user_routes import user_bp
+from routes.account_routes import account_bp
+from routes.order_routes import order_bp
+from routes.trade_routes import trade_bp
+from routes.position_routes import position_bp
+from routes.transaction_routes import transaction_bp
+from dashboard.routes import dashboard_bp
+from recommendations.routes import recommendations_bp
+
 
 def create_app():
     app = Flask(__name__)
@@ -27,6 +31,9 @@ def create_app():
     app.register_blueprint(trade_bp)
     app.register_blueprint(position_bp)
     app.register_blueprint(transaction_bp)
+
+    app.register_blueprint(dashboard_bp)
+    app.register_blueprint(recommendations_bp)
 
     return app
 
