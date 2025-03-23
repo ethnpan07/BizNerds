@@ -26,7 +26,7 @@ const questions: Question[] = [
     rightLabel: 'Aggressive'
   },
   { 
-    text: 'What is your investment horizon? 📅', 
+    text: 'What is your investment horizon?', 
     type: 'scale',
     leftEmoji: '',
     rightEmoji: '',
