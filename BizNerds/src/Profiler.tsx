@@ -9,6 +9,12 @@ interface Question {
   rightLabel?: string;
 }
 
+interface SurveyResults {
+  riskTolerance: number;
+  investmentHorizon: number;
+  initialInvestment: number;
+}
+
 const questions: Question[] = [
   { 
     text: 'What is your risk tolerance? ⚖️', 
@@ -57,6 +63,16 @@ const Profiler: React.FC = () => {
     setAnswers(newAnswers);
   };
 
+  const processSurveyResults = (): SurveyResults => {
+    const [riskTolerance, investmentHorizon, initialInvestmentStr] = answers;
+    
+    return {
+      riskTolerance: riskTolerance as number,
+      investmentHorizon: investmentHorizon as number,
+      initialInvestment: parseInt((initialInvestmentStr as string).replace(/\D/g, '')) || 0
+    };
+  };
+
   const handleNext = () => {
     setContentVisible(false);
     setTimeout(() => {
@@ -66,7 +82,23 @@ const Profiler: React.FC = () => {
           setContentVisible(true);
         });
       } else {
-        alert(`Quiz complete! Thank you, ${answers[4] || 'Anonymous'}.`);
+        // Process results when survey is complete
+        const results = processSurveyResults();
+        
+        // Log results (you can remove this later)
+        console.log('Survey Results:', {
+          'Risk Tolerance (1-7)': results.riskTolerance,
+          'Investment Horizon (1-7)': results.investmentHorizon,
+          'Initial Investment': formatCurrency(results.initialInvestment)
+        });
+
+        // Here you can add code to send results to a backend or parent component
+        // For example: onSurveyComplete(results);
+        
+        alert(`Survey complete! 
+          Risk Tolerance: ${results.riskTolerance}/7
+          Investment Horizon: ${results.investmentHorizon}/7
+          Initial Investment: ${formatCurrency(results.initialInvestment)}`);
       }
     }, 650);
   };
@@ -78,6 +110,15 @@ const Profiler: React.FC = () => {
     } else {
       return typeof answer === 'string' && answer.trim() !== '';
     }
+  };
+
+  const formatCurrency = (amount: number): string => {
+    return new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD',
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
+    }).format(amount);
   };
 
   const renderScaleQuestion = () => {
