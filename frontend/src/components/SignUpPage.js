@@ -28,34 +28,24 @@ function SignUpPage() {
     }
 
     try {
-      const resp = await axios.post("/signup", { name, email, password });
+      const resp = await axios.post(
+        "http://127.0.0.1:5000/signup",
+        { name, email, password },
+        { withCredentials: true }
+      );
+
       setMsg(resp.data.message || "Sign-up successful!");
       navigate("/dashboard");
     } catch (error) {
-      if (error.response) {
-        setError(error.response.data.error);
-      } else {
-        setError("Sign-up failed. Please try again.");
-      }
-    }
-  };
-
-  const handleGoogleSignUp = async () => {
-    try {
-      // TODO: Implement Google sign-up logic
-      console.log("Signing up with Google");
-    } catch (err) {
-      setError("Failed to sign up with Google. Please try again.");
+      setError(error.response?.data?.error || "Sign-up failed. Please try again.");
     }
   };
 
   return (
     <div className="signup-container">
       <div className="signup-form-container">
-        <div>
-          <h2 className="title">Create Account</h2>
-          <p className="subtitle">Sign up to get started</p>
-        </div>
+        <h2 className="title">Create Account</h2>
+        <p className="subtitle">Sign up to get started</p>
 
         {error && <div className="error-message">{error}</div>}
         {msg && <div className="success-message">{msg}</div>}
@@ -114,28 +104,9 @@ function SignUpPage() {
           </button>
         </form>
 
-        <div className="divider">
-          <span>Or continue with</span>
-        </div>
-
-        <button
-          type="button"
-          onClick={handleGoogleSignUp}
-          className="google-button"
-        >
-          <img
-            src="https://www.svgrepo.com/show/475656/google-color.svg"
-            alt="Google logo"
-          />
-          Sign up with Google
-        </button>
-
         <p className="signin-text">
           Already have an account?{" "}
-          <button
-            onClick={() => navigate("/SignInPage")}
-            className="signin-link"
-          >
+          <button onClick={() => navigate("/SignInPage")} className="signin-link">
             Sign in here
           </button>
         </p>

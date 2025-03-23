@@ -1,4 +1,5 @@
 from flask import Flask
+from flask_cors import CORS
 from models import db
 from routes.auth_routes import auth_bp
 from routes.user_routes import user_bp
@@ -12,20 +13,17 @@ from recommendations.routes import recommendations_bp
 import os
 from config import BASE_DIR, SECRET_KEY
 
-
 def create_app():
     app = Flask(__name__)
     
-    # Required for session cookies:
+    CORS(app, supports_credentials=True)  # Enable CORS
+
     app.config['SECRET_KEY'] = SECRET_KEY
-    
-    # SQLAlchemy config:
     app.config['SQLALCHEMY_DATABASE_URI'] = f"sqlite:///{os.path.join(BASE_DIR, 'paper_trading.db')}"
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     
     db.init_app(app)
-    
-    # Register blueprints
+
     app.register_blueprint(auth_bp)
     app.register_blueprint(user_bp)
     app.register_blueprint(account_bp)
@@ -33,7 +31,6 @@ def create_app():
     app.register_blueprint(trade_bp)
     app.register_blueprint(position_bp)
     app.register_blueprint(transaction_bp)
-
     app.register_blueprint(dashboard_bp)
     app.register_blueprint(recommendations_bp)
 

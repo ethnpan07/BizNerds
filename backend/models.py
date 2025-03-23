@@ -73,6 +73,7 @@ class Trade(db.Model):
     __tablename__ = 'trade'
     trade_id = db.Column(db.String, primary_key=True, default=generate_uuid)
     order_id = db.Column(db.String, db.ForeignKey('order.order_id'), nullable=False)
+    portfolio_id = db.Column(db.String, db.ForeignKey('portfolio.portfolio_id'), nullable=False)  # Add this line
     executed_price = db.Column(db.Numeric(18,4), nullable=False)
     executed_qty = db.Column(db.Integer, nullable=False)
     executed_at = db.Column(db.DateTime, default=datetime.utcnow)
