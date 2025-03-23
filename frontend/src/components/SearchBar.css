@@ -1,0 +1,67 @@
+.search-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  .search-input {
+    width: 400px;
+    padding: 10px 14px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s;
+  }
+  
+  .search-input:focus {
+    border-color: #337DFF;
+    box-shadow: 0 0 0 2px rgba(51, 125, 255, 0.2);
+    outline: none;
+  }
+  
+  .search-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: white;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    max-height: 300px;
+    overflow-y: auto;
+    border-radius: 0 0 8px 8px;
+    margin-top: 2px;
+    padding: 4px 0;
+    z-index: 999;
+  }
+  
+  .search-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 16px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  
+  .search-item:hover {
+    background-color: #f6f9fc;
+  }
+  
+  .search-logo {
+    width: 36px;
+    height: 36px;
+    margin-right: 12px;
+    border-radius: 4px;
+    object-fit: contain;
+    background-color: #f0f0f0; /* ✅ Light gray fallback for white logos */
+  }
+  
+  
+  .search-item span {
+    font-size: 15px;
+    line-height: 1.4;
+    color: #111;
+  }
+  

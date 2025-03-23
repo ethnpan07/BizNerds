@@ -1,0 +1,199 @@
+/* Layout grid: top nav, left nav, main content */
+/* Base container styles */
+.dash-container {
+    display: grid;
+    height: 100vh;      /* or min-height: 100vh; */
+    margin: 0;
+    box-sizing: border-box;
+    grid-template-rows: 80px auto; /* row 1 = top nav, row 2 = content */
+  }
+  .dash-container.logged-out {
+    grid-template-columns: 220px auto; /* left nav = 220px, main = rest */
+    grid-template-areas:
+      "topnav topnav"
+      "leftnav main";
+  }
+  .dash-container.logged-in {
+    grid-template-columns: 220px 220px auto;
+    grid-template-areas:
+      "topnav topnav topnav"
+      "leftnav secondnav main";
+  }
+    
+  
+  /* We'll define separate columns for logged-out vs logged-in */
+  
+  
+  /* -------------- TOP NAV -------------- */
+  .top-nav {
+    grid-area: topnav;
+    position: sticky; /* or fixed if you want it pinned */
+    top: 0;
+    z-index: 999;
+    height: 80px;
+    background: #fff;
+  }
+  
+  .top-left {
+    display: flex;
+    align-items: center;
+  }
+  .brand-logo {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    margin-right: 8px;
+  }
+  .menu-icon {
+    font-size: 24px;
+    cursor: pointer;
+    user-select: none;
+    margin-left: 8px;
+  }
+  .top-right {
+    display: flex;
+    align-items: center;
+  }
+  .rec-button {
+    background: #347deb;
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  .rec-button:hover {
+    background: #2665c2;
+  }
+  
+  /* -------------- LEFT NAV -------------- */
+  .left-nav {
+    grid-area: leftnav;
+    background-color: #f3f5f8;
+    display: flex;
+    flex-direction: column;
+    padding: 16px 12px;
+  }
+  .left-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .left-nav li {
+    margin-bottom: 12px;
+    background: #fff;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  .left-nav li:hover {
+    background: #dde2ea;
+  }
+  /* -------------- 2nd LEFT NAV -------------- */
+  .second-left-nav {
+    grid-area: secondnav;
+    background-color: #fafafa;
+    width: 100%; /* it will fill that column automatically */
+    padding: 16px 12px;
+  }
+
+
+  
+  /* -------------- MAIN CONTENT -------------- */
+  .outer-nav {
+    /* Not strictly needed if we define each sub-nav individually, but let's keep it */
+    grid-area: leftnav;
+    display: flex;  /* we can still place LeftNav and SecondLeftNav side by side */
+  }
+  
+  /* If we want the second left nav to fill the "secondnav" grid area instead, 
+     we can do something like: */
+  .second-left-nav {
+    grid-area: secondnav;
+  }
+  
+  /* main content should fill the main area */
+  .main-content {
+    grid-area: main;
+    padding: 24px;
+    overflow: auto; /* if you need scrolling */
+  }
+  
+  
+  /* Search bar row */
+  .search-form {
+    display: flex;
+    align-items: center;
+    margin-bottom: 24px;
+  }
+  .search-btn {
+    margin-left: 8px;
+    padding: 8px 16px;
+    font-size: 14px;
+    background: #347deb;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  .search-btn:hover {
+    background: #2665c2;
+  }
+  
+  /* Error text */
+  .error {
+    color: #c00;
+    margin-bottom: 16px;
+  }
+  
+  /* -------------- CARD -------------- */
+  .dashboard-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    overflow: hidden;
+    max-width: 900px;
+    width: 100%;
+  }
+  
+  .card-header {
+    display: flex;
+    align-items: center;
+    background: #eef2f7;
+    padding: 16px 24px;
+  }
+  .company-logo {
+    width: 48px;
+    height: 48px;
+    margin-right: 16px;
+    object-fit: contain;
+  }
+  
+  .card-plot {
+    display: flex;
+    justify-content: center;
+    padding: 16px;
+  }
+  
+  .card-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 16px;
+    padding: 16px 24px 24px;
+    border-top: 1px solid #ececec;
+  }
+  .info-item {
+    display: flex;
+    flex-direction: column;
+  }
+  .info-label {
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 4px;
+    color: #444;
+  }
+  .info-value {
+    font-size: 14px;
+  }
+  

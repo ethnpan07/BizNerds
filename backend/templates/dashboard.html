@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{{ company_data.ticker }} Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>{{ company_data.companyName }} ({{ company_data.ticker }})</h1>
+
+    <h2>Full Profile Data</h2>
+    <table border="1" cellpadding="4">
+        <thead>
+            <tr><th>Field</th><th>Value</th></tr>
+        </thead>
+        <tbody>
+            {% for key, value in profile_raw.items() %}
+            <tr>
+                <td>{{ key.replace('_', ' ').title() }}</td>
+                <td>{{ value }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h2>Summary & Key Metrics</h2>
+    <p><strong>Current Price:</strong> {{ company_data.currentPrice }}</p>
+    <p><strong>Market Cap:</strong> {{ company_data.marketCap }}</p>
+    <p>{{ summary }}</p>
+
+    <h2>YTD Closing Price Chart</h2>
+    <div>{{ plot_div | safe }}</div>
+
+    <h2>Key Metrics</h2>
+    <table border="1" cellpadding="4">
+        <thead>
+            <tr><th>Metric</th><th>Value</th></tr>
+        </thead>
+        <tbody>
+            {% for label, value in bottom_info.items() %}
+            <tr>
+                <td>{{ label }}</td>
+                <td>{{ value }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <!-- Remove the old "Back to Search" link -->
+    <!-- <br><a href="{{ url_for('dashboard.index') }}">Back to Search</a> -->
+</body>
+</html>

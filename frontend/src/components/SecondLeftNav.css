@@ -1,0 +1,16 @@
+.outer-nav {
+    display: flex; 
+  }
+  
+  .left-nav {
+    width: 220px;
+    /* etc. */
+  }
+  
+  .second-left-nav {
+    width: 220px;
+    border-left: 1px solid #ddd; /* separate from first nav */
+    padding: 16px;
+    background-color: #fafafa;   /* or #fff */
+  }
+  

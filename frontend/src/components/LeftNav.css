@@ -1,0 +1,52 @@
+/* src/components/LeftNav.css */
+
+.left-nav {
+    position: fixed;
+    top: 80px;             /* 👈 Start just below the top bar */
+    left: 0;
+    width: 220px;
+    height: calc(100vh - 80px); /* Fill the rest of the screen */
+    background-color: #fff;
+    border-right: 1px solid #ddd;
+    box-sizing: border-box;
+  
+    /* Keep your other styles: flex, flex-direction column, etc. */
+    display: flex;
+    flex-direction: column;
+  }
+  
+  
+  .nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex: 1;                        /* Fill vertical space if you want */
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Each item is a 'box' of equal height, with borders to separate them */
+  .nav-item {
+    height: 50px;                   /* Choose a fixed height for equal-sized boxes */
+    border-bottom: 1px solid #ddd;  /* Outline between items */
+    display: flex;                  /* So we can center text if desired */
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  
+  /* If you want a hover effect: */
+  .nav-item:hover {
+    background-color: #f0f0f0;
+  }
+  
+  /* If you want the last item to have no bottom border: */
+  .nav-item:last-child {
+    border-bottom: none;
+  }
+  
+  .main-content {
+    margin-left: 220px;   /* So main content isn't under the side nav */
+    /* Or use padding-left, etc. */
+  }

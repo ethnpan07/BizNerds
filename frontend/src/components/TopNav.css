@@ -1,0 +1,70 @@
+/* src/components/TopNav.css */
+
+.top-header {
+    /* let the header remain in normal flow until scroll passes it, then it "sticks" */
+    position: sticky;
+    top: 0;
+    z-index: 999;              /* ensure it stays on top of other elements */
+    display: flex;
+    align-items: center;
+    height: 80px;              /* match your design */
+    background-color: #fff; 
+    box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+  }
+  
+  /* The left box for your logo */
+  .logo-box {
+    width: 220px; /* match your left nav width, if desired */
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid #ddd; /* optional divider */
+  }
+  
+  .brand-logo {
+    width: 48px;
+    height: auto;
+    object-fit: contain;
+    cursor: pointer;
+  }
+  
+  /* The area on the right for your search bar and 'Recommendations' button */
+  .right-container {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    justify-content: space-between; 
+    padding: 0 16px;
+  }
+  
+  .search-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  /* Style the search button */
+  .search-btn {
+    padding: 0 16px;
+    height: 40px;
+    width: 100px;
+    border: none;
+    background-color: #337DFF;
+    color: #fff;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  /* Style the recommendations button */
+  .rec-button {
+    padding: 0 16px;
+    height: 40px;
+    border: none;
+    background-color: #337DFF;
+    color: #fff;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-left: 16px; /* optional spacing */
+  }
+  
