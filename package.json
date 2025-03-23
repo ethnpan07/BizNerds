@@ -1,0 +1,5 @@
+"scripts": {
+  "start": "node backend/server.js",      // existing full-stack start
+  "start:ts": "cd frontend-ts && npm start",
+  "build:ts": "cd frontend-ts && npm run build"
+}
