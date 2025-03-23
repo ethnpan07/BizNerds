@@ -1,6 +1,7 @@
 // src/App.jsx
 import React, { useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import SignUpPage from './components/SignUpPage'
 import TopNav from './components/TopNav'
 import Dashboard from './components/Dashboard'
 import Recommendations from './components/Recommendations'
@@ -26,6 +27,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Dashboard initialTicker={query} />} />
         <Route path="/recommendations" element={<Recommendations />} />
+        <Route path="/SignUpPage" element={<SignUpPage />} /> 
       </Routes>
     </BrowserRouter>
   )
