@@ -1,5 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
+import { theme } from "../theme";
 
 const texts = [
   "AI-Powered Stock Analysis",
@@ -22,7 +23,7 @@ export function RevolvingText() {
   }, []);
 
   return (
-    <div className="h-15 overflow-hidden relative rounded-lg p-4 w-[400px] flex items-center">
+    <div className={`h-15 overflow-hidden relative rounded-lg p-4 w-[400px] flex items-center ${theme.typography.fontFamily}`}>
       <AnimatePresence mode="wait">
         <motion.div
           key={currentIndex}
@@ -32,7 +33,7 @@ export function RevolvingText() {
           transition={{ duration: 0.5 }}
           className="absolute w-full h-full flex items-center justify-center"
         >
-          <div className="text-2xl font-semibold text-[rgb(27,135,45)] opacity-70 text-center px-4 leading-tight">
+          <div className="text-2xl font-semibold text-[#2fce5c] opacity-70 text-center px-4 leading-tight">
             {texts[currentIndex]}
           </div>
         </motion.div>

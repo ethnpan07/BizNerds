@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useNavigate } from "react-router-dom";
+import { theme } from "./theme";
 
 function SignUpPage() {
   const navigate = useNavigate();
@@ -45,7 +46,7 @@ function SignUpPage() {
   };
 
   return (
-    <div className="min-h-screen w-full bg-[radial-gradient(circle_at_center,_rgba(255,255,255,1)_0%,_rgba(27,135,45,0.2)_100%)] flex items-center justify-center p-4">
+    <div className={`min-h-screen w-full bg-[radial-gradient(circle_at_center,_rgba(255,255,255,1)_0%,_rgba(27,135,45,0.2)_100%)] flex items-center justify-center p-4 ${theme.typography.fontFamily}`}>
       <div className="w-full max-w-md space-y-8 bg-white p-8 rounded-xl shadow-lg">
         <div className="text-center">
           <h2 className="text-3xl font-bold text-[rgb(27,135,45)]">Create Account</h2>

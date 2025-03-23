@@ -9,15 +9,16 @@ import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import { Card, CardContent } from "./components/ui/card"
 import { motion } from "framer-motion";
+import { theme } from "./theme";
 
 export default function InfoDump() {
 const navigate = useNavigate();
 
 return (
   <div 
-    className="h-screen w-screen overflow-hidden" 
+    className={`h-screen w-screen overflow-hidden ${theme.typography.fontFamily}`}
     style={{ 
-      backgroundColor: '#EDE0C8'  // khaki cream color
+      background: theme.colors.background.gradient
     }}
   >
     <div className="h-full w-full px-[5vw] py-[3vh] flex flex-col">
@@ -28,8 +29,8 @@ return (
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <h1 className="text-[4vh] font-bold text-center">Investing 101</h1>
-        <p className="text-[2vh] text-gray-700 text-center">
+        <h1 className="text-[4vh] font-bold text-center text-[#2C3E50]">Investing 101</h1>
+        <p className="text-[2vh] text-[#2C3E50] opacity-80 text-center">
           A good place to start. Get the low-down before you dive in.
         </p>
       </motion.div>
@@ -43,7 +44,7 @@ return (
           transition={{ duration: 0.5, delay: 0.3 }}
           className="h-full"
         >
-          <Card className="h-full bg-[#4CAF50] text-white p-[2vh] rounded-3xl overflow-hidden border-0 shadow-[0_10px_30px_rgba(0,0,0,0.3)]">
+          <Card className="h-full bg-[#98D8AA] text-[#2C3E50] p-[2vh] rounded-3xl overflow-hidden border-0 shadow-[0_10px_30px_rgba(0,0,0,0.1)]">
             <CardContent className="flex flex-col h-full">
               <div className="flex-1">
                 <h2 className="text-[2.5vh] font-bold mb-[2vh]">Title</h2>
@@ -67,7 +68,7 @@ return (
           transition={{ duration: 0.5, delay: 0.5 }}
           className="h-full"
         >
-          <Card className="h-full bg-[#388E3C] text-white p-[2vh] rounded-3xl overflow-hidden border-0 shadow-[0_10px_30px_rgba(0,0,0,0.3)]">
+          <Card className="h-full bg-[#F5E6E8] text-[#2C3E50] p-[2vh] rounded-3xl overflow-hidden border-0 shadow-[0_10px_30px_rgba(0,0,0,0.1)]">
             <CardContent className="flex flex-col h-full">
               <div className="flex-1">
                 <h2 className="text-[2.5vh] font-bold mb-[2vh]">Title</h2>
@@ -91,7 +92,7 @@ return (
           transition={{ duration: 0.5, delay: 0.7 }}
           className="h-full"
         >
-          <Card className="h-full bg-[#1B5E20] text-white p-[2vh] rounded-3xl overflow-hidden border-0 shadow-[0_10px_30px_rgba(0,0,0,0.3)]">
+          <Card className="h-full bg-[#98D8AA] text-[#2C3E50] p-[2vh] rounded-3xl overflow-hidden border-0 shadow-[0_10px_30px_rgba(0,0,0,0.1)]">
             <CardContent className="flex flex-col h-full">
               <div className="flex-1">
                 <h2 className="text-[2.5vh] font-bold mb-[2vh]">Title</h2>
@@ -118,7 +119,7 @@ return (
       >
         <Button
           onClick={() => navigate('/profiler')}
-          className="w-1/3 h-[7vh] bg-white hover:bg-gray-50 text-[#1B5E20] text-[2vh] font-semibold rounded-2xl shadow-lg flex items-center justify-center gap-3 group transition-all"
+          className="w-1/3 h-[7vh] bg-[#98D8AA] hover:bg-[#7BC77B] text-[#2C3E50] text-[2vh] font-semibold rounded-2xl shadow-lg flex items-center justify-center gap-3 group transition-all"
         >
           <span>Continue to Profile Setup</span>
           <svg 
@@ -127,7 +128,7 @@ return (
             viewBox="0 0 24 24" 
             strokeWidth={2} 
             stroke="currentColor" 
-            className="w-[2.5vh] h-[2.5vh] group-hover:translate-x-1 transition-transform"
+            className="w-[2.5vh] h-[2.5vh] group-hover:translate-x-8 transition-transform"
           >
             <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
           </svg>

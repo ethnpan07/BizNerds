@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { theme } from './theme';
 
 interface Question {
   text: string;
@@ -17,22 +18,22 @@ interface SurveyResults {
 
 const questions: Question[] = [
   { 
-    text: 'What is your risk tolerance? ⚖️', 
+    text: 'What is your risk tolerance?', 
     type: 'scale',
-    leftEmoji: '🛡️',
-    rightEmoji: '⚡',
+    leftEmoji: '',
+    rightEmoji: '',
     leftLabel: 'Conservative',
     rightLabel: 'Aggressive'
   },
   { 
     text: 'What is your investment horizon? 📅', 
     type: 'scale',
-    leftEmoji: '🐇',
-    rightEmoji: '🐢',
+    leftEmoji: '',
+    rightEmoji: '',
     leftLabel: 'Short-term',
     rightLabel: 'Long-term'
   },
-  { text: 'Initial investment amount? 💰', type: 'text' },
+  { text: 'Initial investment amount? ', type: 'text' },
 ];
 
 const Profiler: React.FC = () => {
@@ -131,7 +132,7 @@ const Profiler: React.FC = () => {
             <span style={{ 
               fontSize: '2rem', 
               color: '#2196F3',
-              fontFamily: 'Poppins, sans-serif',
+              fontFamily: theme.typography.fontFamily,
               whiteSpace: 'nowrap',
             }}>
               {currentQuestion.leftLabel}
@@ -216,7 +217,7 @@ const Profiler: React.FC = () => {
             <span style={{ 
               fontSize: '2rem', 
               color: '#4CAF50',
-              fontFamily: 'Poppins, sans-serif',
+              fontFamily: theme.typography.fontFamily,
               whiteSpace: 'nowrap',
             }}>
               {currentQuestion.rightLabel}
@@ -275,7 +276,7 @@ const Profiler: React.FC = () => {
               backgroundColor: 'white',
               transition: 'all 0.2s ease',
               boxShadow: '0 2px 8px rgba(76, 175, 80, 0.1)',
-              fontFamily: 'Poppins, sans-serif',
+              fontFamily: theme.typography.fontFamily,
               color: '#2C3E50',
             }}
             onFocus={(e) => {
@@ -295,6 +296,7 @@ const Profiler: React.FC = () => {
             textAlign: 'center',
             fontSize: '0.9rem',
             color: '#666',
+            fontFamily: theme.typography.fontFamily,
           }}>
             Enter your initial investment amount
           </div>
@@ -312,8 +314,8 @@ const Profiler: React.FC = () => {
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        background: 'radial-gradient(circle at center, #E8F5E9 0%, #C8E6C9 50%, #A5D6A7 100%)',
-        fontFamily: 'Poppins, sans-serif',
+        background: theme.colors.background.gradient,
+        fontFamily: theme.typography.fontFamily,
       }}
     >
       <div style={{
@@ -328,8 +330,8 @@ const Profiler: React.FC = () => {
           <p style={{ 
             fontSize: '1.5rem',
             marginBottom: '4rem',
-            color: '#4CAF50',
-            fontFamily: 'Poppins, sans-serif',
+            color: theme.colors.primary.main,
+            fontFamily: theme.typography.fontFamily,
           }}>
             Let's tailor your portfolio to your needs!
           </p>
@@ -347,8 +349,9 @@ const Profiler: React.FC = () => {
           <p style={{ 
             fontSize: '3.5rem',
             marginBottom: '3rem',
-            fontFamily: 'Poppins, sans-serif',
+            fontFamily: theme.typography.fontFamily,
             textAlign: 'center',
+            color: theme.colors.text.primary,
           }}>
             {questions[currentQuestionIndex].text}
           </p>
@@ -366,27 +369,28 @@ const Profiler: React.FC = () => {
               fontSize: '1.2rem',
               borderRadius: '8px',
               border: 'none',
-              backgroundColor: '#4CAF50',
-              color: '#fff',
-              fontFamily: 'Poppins, sans-serif',
+              backgroundColor: theme.colors.primary.main,
+              color: theme.colors.text.primary,
+              fontFamily: theme.typography.fontFamily,
               fontWeight: '500',
-              boxShadow: '0 4px 6px rgba(76, 175, 80, 0.2)',
-              transition: 'all 0.2s ease',
+              boxShadow: '0 4px 6px rgba(152, 216, 170, 0.2)',
+              transition: 'all 0.3s ease',
               opacity: canProceed() ? '1' : '0.6',
             }}
+            
             disabled={!canProceed()}
             onMouseEnter={(e) => {
               if (canProceed()) {
-                e.currentTarget.style.transform = 'translateY(-2px)';
-                e.currentTarget.style.boxShadow = '0 6px 12px rgba(76, 175, 80, 0.3)';
-                e.currentTarget.style.backgroundColor = '#45a049';
+                e.currentTarget.style.transform = 'scale(1.05)';
+                e.currentTarget.style.boxShadow = '0 6px 12px rgba(152, 216, 170, 0.3)';
+                e.currentTarget.style.backgroundColor = theme.colors.primary.dark;
               }
             }}
             onMouseLeave={(e) => {
               if (canProceed()) {
-                e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.boxShadow = '0 4px 6px rgba(76, 175, 80, 0.2)';
-                e.currentTarget.style.backgroundColor = '#4CAF50';
+                e.currentTarget.style.transform = 'scale(1)';
+                e.currentTarget.style.boxShadow = '0 4px 6px rgba(152, 216, 170, 0.2)';
+                e.currentTarget.style.backgroundColor = theme.colors.primary.main;
               }
             }}
           >
