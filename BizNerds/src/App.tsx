@@ -4,6 +4,7 @@ import LandingPage from "./LandingPage";
 import InfoDump from "./InfoDump";
 import SignInPage from "./SignInPage";
 import SignUpPage from "./SignUpPage";
+import Profiler from "./Profiler";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/InfoDump" element={<InfoDump />} />
         <Route path="/SignInPage" element={<SignInPage />} />
         <Route path="/SignUpPage" element={<SignUpPage />} />
+        <Route path="/Profiler" element={<Profiler />} />
       </Routes>
     </Router>
   );
