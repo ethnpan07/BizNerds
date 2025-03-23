@@ -28,7 +28,7 @@ function LandingPage() {
         <Button
           variant="outline"
           className="px-6 py-3 text-xl border-2 border-[rgb(27,135,45)] text-[rgb(27,135,45)] hover:bg-[rgb(27,135,45)] hover:border-[rgb(27,135,45)] hover:text-white opacity-50 hover:opacity-80 mr-8"
-          onClick={() => navigate("/")}
+          onClick={() => navigate("/SignInPage")}
         >
           Sign In
         </Button>
