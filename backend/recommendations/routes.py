@@ -11,7 +11,7 @@ def recommendations():
     survey = load_survey_data()
 
 
-    # Fetch up to 100 tickers with positive 7‑day returns
+    # Fetch up to 100 tickers with positive 21‑day returns
     resp = requests.get(
         "https://financialmodelingprep.com/api/v3/stock_market/gainers",
         params={"apikey": FIN_API_KEY, "limit": 100},

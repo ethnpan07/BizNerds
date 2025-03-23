@@ -72,4 +72,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 ### Setting API key
 
-Use run `export=FMP_API_KEY` in your terminal or append to the end of your shell configuration file (~/.zshrc, ~/.bashrc, etc.) and run `source ~/.zshrc` or your respective shell configuration file.
+Use run `export=FMP_API_KEY` in the shell session you intend to run the backend (Flask) or append it to the end of your shell configuration file (~/.zshrc, ~/.bashrc, etc.) and run `source ~/.zshrc` or your respective shell configuration file.

@@ -2,7 +2,7 @@
 .dash-container {
     display: grid;
     grid-template-columns: 220px auto;
-    grid-template-rows: 60px auto;
+    grid-template-rows: 80px auto;
     grid-template-areas:
       "topnav topnav"
       "leftnav main";
@@ -13,13 +13,6 @@
   /* -------------- TOP NAV -------------- */
   .top-nav {
     grid-area: topnav;
-    height: 60px;
-    background: #ffffff;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 16px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   }
   .top-left {
     display: flex;
@@ -57,8 +50,10 @@
   /* -------------- LEFT NAV -------------- */
   .left-nav {
     grid-area: leftnav;
-    background: #e9ecf2;
-    padding: 16px;
+    background-color: #f3f5f8;
+    display: flex;
+    flex-direction: column;
+    padding: 16px 12px;
   }
   .left-nav ul {
     list-style: none;
@@ -80,9 +75,6 @@
   .main-content {
     grid-area: main;
     padding: 24px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
   }
   
   /* Search bar row */
