@@ -24,3 +24,6 @@ yarn-error.log*
 
 # Hugging Face model cache
 backend/hf_cache/
+
+# Ignore React/Webpack cache
+frontend/node_modules/.cache/
