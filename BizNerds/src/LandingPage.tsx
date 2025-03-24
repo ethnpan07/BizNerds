@@ -132,7 +132,7 @@ function LandingPage() {
                 </CardHeader>
                 <CardContent>
                   <CardDescription className="text-md text-[#2C3E50]">
-                    Welcome to StockUp! This is Dummy text. This is Dummy text.
+                  At StockUp, we provide a safe and supportive space for people to grow their investing knowledge. Our platform offers clear guidance, beginner-friendly resources, and practical insights to help you make confident financial decisions. StockUp is here to guide you every step of the way!
                   </CardDescription>
                   <div className="flex justify-end mr-2">
                     <Button variant="link" className="mt-4 text-[#2C3E50] hover:text-[#2C3E50]/80 transition-all duration-300 hover:scale-105" onClick={() => (window.location.href = "#team-page")}>About Us</Button>
