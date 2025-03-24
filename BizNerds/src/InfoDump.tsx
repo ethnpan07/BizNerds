@@ -10,6 +10,9 @@ import { useNavigate } from "react-router-dom";
 import { Card, CardContent } from "./components/ui/card"
 import { motion } from "framer-motion";
 import { theme } from "./theme";
+import stocksImage from './assets/stocks-image.png';  // Update path as needed
+import bondsImage from './assets/bonds-image.png';    // Update path as needed
+import etfImage from './assets/etfs-image.png';       // Update path as needed
 
 export default function InfoDump() {
 const navigate = useNavigate();
@@ -37,7 +40,7 @@ return (
 
       {/* Cards Container - takes up 70vh */}
       <div className="h-[70vh] grid grid-cols-3 gap-[2vw] my-[2vh]">
-        {/* Investment Card */}
+        {/* Stocks Card */}
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
@@ -46,22 +49,22 @@ return (
         >
           <Card className="h-full bg-[#98D8AA] text-[#2C3E50] p-[2vh] rounded-3xl overflow-hidden border-0 shadow-[0_10px_30px_rgba(0,0,0,0.1)]">
             <CardContent className="flex flex-col h-full">
-              <div className="flex-1">
-                <h2 className="text-[2.5vh] font-bold mb-[2vh]">Title</h2>
-                <p className="text-[1.8vh] line-clamp-[12]">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id felis et lacus tincidunt tincidunt. Sed quis eros vel lorem convallis tincidunt ac a nunc. Maecenas in ligula eget tortor fermentum tempor. Phasellus vehicula, nunc at facilisis tempor, ligula lacus vestibulum odio, sed blandit sapien elit ut ligula. Fusce id orci sed justo posuere tincidunt. Curabitur vehicula sapien et velit tristique, at malesuada elit lacinia. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer at libero ut lacus varius vulputate in non metus
-                </p>
+              <h2 className="text-[4.5vh] font-bold mb-[3vh] text-center w-full">Stocks</h2>
+              <div className="w-full h-[25vh] flex items-center justify-center mb-[2vh]">
+                <img 
+                  src={stocksImage} 
+                  alt="Stocks" 
+                  className="h-full w-[80%] object-contain p-4 bg-white/50 rounded-2xl border-3 border-[#2C3E50]/20 shadow-lg"
+                />
               </div>
-              <div className="h-[30%] flex items-end justify-center">
-                <div className="w-4/5 h-full">
-                  {/* Image placeholder */}
-                </div>
-              </div>
+              <p className="text-[2.2vh] flex-1 text-center">
+              Buying shares of a company means you own a piece of that business. Stocks can offer high growth but can also be volatile.
+              </p>
             </CardContent>
           </Card>
         </motion.div>
 
-        {/* Stock Card */}
+        {/* Bonds Card */}
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
@@ -70,22 +73,22 @@ return (
         >
           <Card className="h-full bg-[#F5E6E8] text-[#2C3E50] p-[2vh] rounded-3xl overflow-hidden border-0 shadow-[0_10px_30px_rgba(0,0,0,0.1)]">
             <CardContent className="flex flex-col h-full">
-              <div className="flex-1">
-                <h2 className="text-[2.5vh] font-bold mb-[2vh]">Title</h2>
-                <p className="text-[1.8vh] line-clamp-[12]">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id felis et lacus tincidunt tincidunt. Sed quis eros vel lorem convallis tincidunt ac a nunc. Maecenas in ligula eget tortor fermentum tempor. Phasellus vehicula, nunc at facilisis tempor, ligula lacus vestibulum odio, sed blandit sapien elit ut ligula. Fusce id orci sed justo posuere tincidunt. Curabitur vehicula sapien et velit tristique, at malesuada elit lacinia. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer at libero ut lacus varius vulputate in non metus
-                </p>
+              <h2 className="text-[4.5vh] font-bold mb-[3vh] text-center w-full">Bonds</h2>
+              <div className="w-full h-[25vh] flex items-center justify-center mb-[2vh]">
+                <img 
+                  src={bondsImage} 
+                  alt="Bonds" 
+                  className="h-full w-[80%] object-contain p-4 bg-white/50 rounded-2xl border-3 border-[#2C3E50]/20 shadow-lg"
+                />
               </div>
-              <div className="h-[30%] flex items-end justify-center">
-                <div className="w-4/5 h-full">
-                  {/* Image placeholder */}
-                </div>
-              </div>
+              <p className="text-[2.2vh] flex-1 text-center">
+              Bonds are loans you give to governments or companies. They generally offer lower risk and stable income through interest payments.
+              </p>
             </CardContent>
           </Card>
         </motion.div>
 
-        {/* Stock Market Card */}
+        {/* ETFs Card */}
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
@@ -94,17 +97,16 @@ return (
         >
           <Card className="h-full bg-[#98D8AA] text-[#2C3E50] p-[2vh] rounded-3xl overflow-hidden border-0 shadow-[0_10px_30px_rgba(0,0,0,0.1)]">
             <CardContent className="flex flex-col h-full">
-              <div className="flex-1">
-                <h2 className="text-[2.5vh] font-bold mb-[2vh]">Title</h2>
-                <p className="text-[1.8vh] line-clamp-[10]">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id felis et lacus tincidunt tincidunt. Sed quis eros vel lorem convallis tincidunt ac a nunc. Maecenas in ligula eget tortor fermentum tempor. Phasellus vehicula, nunc at facilisis tempor, ligula lacus vestibulum odio, sed blandit sapien elit ut ligula. Fusce id orci sed justo posuere tincidunt. Curabitur vehicula sapien et velit tristique, at malesuada elit lacinia. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer at libero ut lacus varius vulputate in non metus
-                </p>
+              <h2 className="text-[4.5vh] font-bold mb-[3vh] text-center w-full">Mutual Funds/ETFs</h2>
+              <div className="w-full h-[25vh] flex items-center justify-center mb-[2vh]">
+                <img 
+                  src={etfImage} 
+                  alt="ETFs" 
+                  className="h-full w-[80%] object-contain p-4 bg-white/50 rounded-2xl border-3 border-[#2C3E50]/20 shadow-lg"
+                />
               </div>
-              <div className="h-[30%] flex items-end justify-center">
-                <div className="w-4/5 h-full">
-                  {/* Handshake illustration here */}
-                </div>
-              </div>
+              <p className="text-[2.2vh] flex-1 text-center">
+              These funds pool money from many investors to buy a diversified portfolio of stocks or bonds. They are excellent for beginners because they provide built-in diversification.              </p>
             </CardContent>
           </Card>
         </motion.div>
