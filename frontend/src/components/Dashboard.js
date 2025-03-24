@@ -38,6 +38,18 @@ export default function Dashboard() {
     return () => window.removeEventListener('search', handleSearch)
   }, [])
 
+  useEffect(() => {
+    // Check for survey results when component mounts
+    const surveyResults = localStorage.getItem('surveyResults');
+    if (surveyResults) {
+      const results = JSON.parse(surveyResults);
+      console.log('Received survey results:', results);
+      // You can use these results to customize the dashboard
+      // For example, set initial recommendations based on risk tolerance
+      localStorage.removeItem('surveyResults'); // Clean up after reading
+    }
+  }, []);
+
   // Simulate login check
   useEffect(() => {
     axios.get('/check_session')

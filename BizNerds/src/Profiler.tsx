@@ -93,13 +93,15 @@ const Profiler: React.FC = () => {
           'Initial Investment': formatCurrency(results.initialInvestment)
         });
 
-        // Here you can add code to send results to a backend or parent component
-        // For example: onSurveyComplete(results);
-        
-        alert(`Survey complete! 
-          Risk Tolerance: ${results.riskTolerance}/7
-          Investment Horizon: ${results.investmentHorizon}/7
-          Initial Investment: ${formatCurrency(results.initialInvestment)}`);
+        // Store results in localStorage for the frontend to access
+        localStorage.setItem('surveyResults', JSON.stringify({
+          riskTolerance: results.riskTolerance,
+          investmentHorizon: results.investmentHorizon,
+          initialInvestment: results.initialInvestment
+        }));
+
+        // Redirect to the frontend app
+        window.location.href = 'http://localhost:3000/';
       }
     }, 650);
   };
